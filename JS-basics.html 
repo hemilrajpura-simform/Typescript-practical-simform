@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Javscript Basics</h1>
+    <h2 id="addition"></h2>
+    <h3 id="time"></h3>
+    <h4 id="day"></h4>
+    <script>
+      console.log("Hello world");
+      let a = 5;
+      let b = 10;
+      let c = a + b;
+
+      document.getElementById("addition").innerHTML = c;
+
+      var ctime = new Date();
+      var hrs = ctime.getHours();
+      var day = ctime.getDay();
+      if (hrs < 12) {
+        document.getElementById("time").innerHTML =
+          "Good Morning! Have a productive day";
+      } else {
+        document.getElementById("time").innerHTML =
+          "Ops! You have started late";
+      }
+
+      const courses = ["Git Basics", "HTML&CSS", "Javascript", "TS"];
+      var i = 0;
+
+      for (; courses[i]; ) {
+        console.log(courses[i]);
+        i++;
+      }
+
+      i = 0;
+      while (courses[i]) {
+        console.log(courses[i]);
+        i++;
+      }
+
+      function getDayName(){
+      switch (day) {
+        case 0:
+          return "Sunday! Have Fun";
+        case 1:
+          return "Monday!";
+        case 2:
+          return "Tuesday";
+          case 3:
+return "Wed";
+case 4:
+return "Thursday";
+
+case 5:
+return "Friday";      
+case 6:   
+return "Saturday";
+        }
+    }
+        
+    document.getElementById("day").innerHTML = getDayName();
+
+
+//async
+
+function maybe() {
+    console.log("…execute async, maybe?");
+}
+
+function proveIt() {
+    setTimeout(maybe, 1000);
+    console.log("Hey, you just invoked me, and this is crazy…");
+    console.log("But I'll queue you up");
+    return "and you'll…";
+}
+proveIt();
+
+
+
+
+
+//promise 
+const evenNo = (number) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            // Checking if numebr is even or not
+            if (number % 2 != 0) {
+ 
+              // If number is even
+              return reject("Only even number allowed")
+            } 
+ 
+            // If number is odd
+            resolve(number)
+        }, 1000)
+    })
+ }
+ 
+ // inserting odd no.
+ evenNo(3).then((no) => {
+    console.log("The no is:", no)
+ }).catch((error) => {
+    console.log(error)
+ })
+ 
+// inserting even no.
+evenNo(6).then((no) => {
+  console.log("The no is:", no)
+}).catch((error) => {
+  console.log(error)
+})
+
+    </script>
+  </body>
+</html>
