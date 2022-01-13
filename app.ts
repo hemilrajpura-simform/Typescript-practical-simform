@@ -1,11 +1,11 @@
 var memoryStore = [];
-var secondOperations = true;
-var calcModeBtn = true;
+var secondOperations:boolean = true;
+var calcModeBtn:boolean = true;
 //var scrnn = (< HTMLInputElement>document.getElementById("scrn"));
 
 var scrn = (<HTMLInputElement>document.getElementById("scrn"));
 
-function evalu() {
+function evalu():void {
   scrn.value = eval(scrn.value);
 }
 
@@ -13,7 +13,7 @@ function evalu() {
 
 
 
-function calcModeButton() {
+function calcModeButton():void {
   if (calcModeBtn) {
     var temp = <HTMLInputElement>document.getElementById("calcMode");
     temp.innerText = "DEG";
@@ -26,7 +26,7 @@ function calcModeButton() {
   }
 }
 
-function secondButton() {
+function secondButton():void  {
 
   if (secondOperations) {
 
@@ -56,9 +56,6 @@ function secondButton() {
 
   }
   else {
-
-
-
     var x2 = <HTMLInputElement>document.getElementById("x2");
     x2.innerText = "x^2";
 
@@ -81,11 +78,10 @@ function secondButton() {
     secondndbtn.style.color = "black";
     secondndbtn.style.backgroundColor = "white";
     secondOperations = !secondOperations;
-
   }
 }
 
-function memoryOperations(props) {
+function memoryOperations(props:string):void  {
   switch (props) {
     case "mc":
       memoryStore = [];
@@ -111,7 +107,7 @@ function memoryOperations(props) {
     (memoryStore.length == 0 ? "No Stored Value Available" : memoryStore[0]);
 }
 
-function pow() {
+function pow():void  {
 
   if (secondOperations) {
     scrn.value = String(Math.pow(Number(scrn.value), 2));
@@ -121,7 +117,7 @@ function pow() {
   }
 }
 
-function checkAlpha(e) {
+function checkAlpha(e) :boolean {
   var x = e.which || e.keycode;
   if ((x >= 48 && x <= 57))
     return true;
@@ -129,19 +125,19 @@ function checkAlpha(e) {
     return false;
 }
 
-function backspace() {
+function backspace():void  {
   scrn.value = scrn.value.substr(0, scrn.value.length - 1);
 }
 
-function sign() {
+function sign():void  {
   scrn.value = String(Math.sign(Number(scrn.value)));
 }
 
-function oneDivide() {
+function oneDivide():void  {
   scrn.value = String(1 / Number(scrn.value));
 }
 
-function tenpower() {
+function tenpower():void  {
   if (secondOperations) {
     scrn.value = String(Math.pow(10, Number(scrn.value)));
   }
@@ -149,17 +145,17 @@ function tenpower() {
     scrn.value = String(2 ** (Number(scrn.value)));
   }
 }
-function FE() {
+function FE():void  {
  var displayValue = Number(scrn.value);
   scrn.value = displayValue.toExponential();
 }
-function exp() {
+function exp():void  {
   scrn.value = String( Math.exp(Number(scrn.value)));
 }
-function log() {
+function log():void  {
   scrn.value = String(Math.log(Number(scrn.value)));
 }
-function In() {
+function In():void {
   if (secondOperations) {
     scrn.value = String(Math.log(Number(scrn.value)));
   }
@@ -168,20 +164,20 @@ function In() {
   }
 }
 
-function fact() {
+function fact():void {
 
-  var i, num, f;
+  var i:number, num:number, f:number;
   f = 1;
-  num = scrn.value;
+  num = Number(scrn.value);
   for (i = 1; i <= num; i++) {
     f = f * i;
   }
   i = i - 1;
-  scrn.value = f;
+  scrn.value = String(f);
 
 }
 
-function sqrt() {
+function sqrt():void {
   if (secondOperations) {
     scrn.value = String(Math.sqrt(Number(scrn.value)) * 2);
   }
@@ -193,7 +189,7 @@ function sqrt() {
 function trigo():void {  
 
 var temp = <HTMLInputElement>document.getElementById("Trigonometry");
-  var e = temp.value;
+  var e:string = temp.value;
   switch (e) {
 
     case "1":
@@ -229,13 +225,13 @@ var temp = <HTMLInputElement>document.getElementById("Trigonometry");
     default:
     // nothing to write here
   }
-  var temp2 = (<HTMLInputElement>document.getElementById("Trigonometry"));
-  //temp2.selectedIndex = 0; 
+  var DropdownList = (document.getElementById("Trigonometry")) as HTMLSelectElement;
+  DropdownList.selectedIndex=0;
 }
 
 function Functions(): void {
   var temp = <HTMLInputElement>document.getElementById("Functions");
-  var e = temp.value;
+  var e:string = temp.value;
   switch (e) {
     case "1":
       scrn.value = String(Math.abs(Number(scrn.value)));
@@ -252,7 +248,7 @@ function Functions(): void {
     default:
     // nothing to write here 
   }
-var dropDownInd =  <HTMLInputElement>document.getElementById("Functions");
- // dropDownInd.selectedIndex = 0;
+  var DropdownList = (document.getElementById("Functions")) as HTMLSelectElement;
+  DropdownList.selectedIndex=0;
 }
 
