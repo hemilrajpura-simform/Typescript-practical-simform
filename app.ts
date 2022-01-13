@@ -117,7 +117,7 @@ function pow():void  {
   }
 }
 
-function checkAlpha(e) :boolean {
+function checkAlpha(e:any):boolean {
   var x = e.which || e.keycode;
   if ((x >= 48 && x <= 57))
     return true;
@@ -126,7 +126,7 @@ function checkAlpha(e) :boolean {
 }
 
 function backspace():void  {
-  scrn.value = scrn.value.substr(0, scrn.value.length - 1);
+  scrn.value = scrn.value.substring(0, scrn.value.length - 1);
 }
 
 function sign():void  {
