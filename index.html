@@ -50,7 +50,7 @@
           </a>
 
           <a class="diff">
-            <select name="Function" id="Function" onchange="Function()">
+            <select name="Functions" id="Functions" onchange="Functions()">
               <option disabled selected>ƒ Function</option>
               <option value="1">abs(x)</option>
               <option value="2">acos(x)</option>
@@ -113,7 +113,7 @@
           <button onclick="scrn.value += '0'" class="btn">0</button>
           <button onclick="scrn.value += '.'" class="btn">.</button>
           <button
-            onclick="scrn.value=' ' + eval(scrn.value )"
+            onclick="evalu()"
             style="background-color: #e7a01f; color: white; font-weight: bolder"
           >
             =
@@ -128,6 +128,6 @@
  
     </div>
 
-    <script src="app.js"></script>
+    <script src="/lib/app.js"></script>
   </body>
 </html>
