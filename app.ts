@@ -1,7 +1,6 @@
-var memoryStore = [];
 var secondOperations:boolean = true;
 var calcModeBtn:boolean = true;
-//var scrnn = (< HTMLInputElement>document.getElementById("scrn"));
+var memoryStore:number;
 
 var scrn = (<HTMLInputElement>document.getElementById("scrn"));
 
@@ -80,27 +79,26 @@ function secondButton():void  {
 function memoryOperations(props:string):void  {
   switch (props) {
     case "mc":
-      memoryStore = [];
+      memoryStore = null;
       break;
     case "ms":
-      memoryStore.unshift(Number(scrn.value));
+      memoryStore = Number(scrn.value);
       break;
     case "mr":
-      scrn.value += memoryStore[0];
+      scrn.value += memoryStore;
       break;
 
     case "m+":
-      scrn.value = Number(scrn.value) + memoryStore[0];
+      scrn.value = String(Number(scrn.value) + Number(memoryStore));
       break;
-
     case "m-":
-      scrn.value = String(memoryStore[0]-Number(scrn.value));
+      scrn.value = String(memoryStore-Number(scrn.value));
       break;
     default:
     // nothing to write here  
   }
   document.getElementById("memory-operation").innerHTML =
-    (memoryStore.length == 0 ? "No Stored Value Available" : memoryStore[0]);
+    (memoryStore == null ? "No Stored Value Available" : String(memoryStore));
 }
 
 function pow():void  {
