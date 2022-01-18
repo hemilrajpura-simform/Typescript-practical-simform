@@ -97,8 +97,9 @@ function memoryOperations(props:string):void  {
     default:
     // nothing to write here  
   }
-  document.getElementById("memory-operation").innerHTML =
-    (memoryStore == null ? "No Stored Value Available" : String(memoryStore));
+ var temp= <HTMLInputElement>document.getElementById("memory-operation");
+ 
+    temp.innerHTML = String(memoryStore == null ? "No Stored Value Available" : memoryStore); 
 }
 
 function pow():void  {
