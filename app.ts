@@ -9,10 +9,6 @@ function evalu():void {
   scrn.value = eval(scrn.value);
 }
 
-
-
-
-
 function calcModeButton():void {
   if (calcModeBtn) {
     var temp = <HTMLInputElement>document.getElementById("calcMode");
@@ -98,7 +94,7 @@ function memoryOperations(props:string):void  {
       break;
 
     case "m-":
-      scrn.value = String(Number(scrn.value) - memoryStore[0]);
+      scrn.value = String(memoryStore[0]-Number(scrn.value));
       break;
     default:
     // nothing to write here  
@@ -130,7 +126,7 @@ function backspace():void  {
 }
 
 function sign():void  {
-  scrn.value = String(Math.sign(Number(scrn.value)));
+  scrn.value = String(0-Number(scrn.value));
 }
 
 function oneDivide():void  {
@@ -153,7 +149,7 @@ function exp():void  {
   scrn.value = String( Math.exp(Number(scrn.value)));
 }
 function log():void  {
-  scrn.value = String(Math.log(Number(scrn.value)));
+  scrn.value = String(Math.log10(Number(scrn.value)));
 }
 function In():void {
   if (secondOperations) {
