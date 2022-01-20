@@ -1,24 +1,27 @@
 var secondOperations:boolean = true;
+  // for '2^nd' toggle 
 var calcModeBtn:boolean = true;
+  // for DEG and RAD toggle
 var memoryStore:number;
-
+  // for memory operations 
 var scrn = (<HTMLInputElement>document.getElementById("scrn"));
 
 function evalu():void {
   scrn.value = eval(scrn.value);
+  // basic math. operations will be calculated here (+,-,*,/,%)
 }
 
 function calcModeButton():void {
+  var temp = <HTMLInputElement>document.getElementById("calcMode");
   if (calcModeBtn) {
-    var temp = <HTMLInputElement>document.getElementById("calcMode");
     temp.innerText = "DEG";
     calcModeBtn = !calcModeBtn;
   }
   else {
-    var temp = <HTMLInputElement>document.getElementById("calcMode");
     temp.innerText = "RAD";
     calcModeBtn = !calcModeBtn;
   }
+// if calcModeButton(boolean) is true then it will show DEG otherwise RAD
 }
 
 function secondButton():void  {
@@ -77,22 +80,28 @@ function secondButton():void  {
 }
 
 function memoryOperations(props:string):void  {
+  //memory oprations
   switch (props) {
     case "mc":
+      //memory clear
       memoryStore = null;
       break;
     case "ms":
       memoryStore = Number(scrn.value);
+      //memory store
       break;
     case "mr":
       scrn.value += memoryStore;
+      //memory read
       break;
 
     case "m+":
+      //addition
       scrn.value = String(Number(scrn.value) + Number(memoryStore));
       break;
     case "m-":
-      scrn.value = String(memoryStore-Number(scrn.value));
+    //subtraction  
+    scrn.value = String(memoryStore-Number(scrn.value));
       break;
     default:
     // nothing to write here  
@@ -100,10 +109,11 @@ function memoryOperations(props:string):void  {
  var temp= <HTMLInputElement>document.getElementById("memory-operation");
  
     temp.innerHTML = String(memoryStore == null ? "No Stored Value Available" : memoryStore); 
+    //here we have used ternary 
 }
 
 function pow():void  {
-
+//power operation
   if (secondOperations) {
     scrn.value = String(Math.pow(Number(scrn.value), 2));
   }
@@ -118,14 +128,17 @@ function checkAlpha(e:any):boolean {
     return true;
   else
     return false;
+    // validation - alphabets should not be written
 }
 
 function backspace():void  {
   scrn.value = scrn.value.substring(0, scrn.value.length - 1);
+  //backspace button implementation
 }
 
 function sign():void  {
   scrn.value = String(0-Number(scrn.value));
+  // '+/-' button implementation
 }
 
 function oneDivide():void  {
@@ -160,7 +173,7 @@ function In():void {
 }
 
 function fact():void {
-
+  // factorial of n
   var i:number, num:number, f:number;
   f = 1;
   num = Number(scrn.value);
@@ -169,9 +182,9 @@ function fact():void {
   }
   i = i - 1;
   scrn.value = String(f);
-
-}
-
+// i have used loop method which is without recursion 
+} 
+      
 function sqrt():void {
   if (secondOperations) {
     scrn.value = String(Math.sqrt(Number(scrn.value)) * 2);
@@ -179,10 +192,11 @@ function sqrt():void {
   else {
     scrn.value = String(Math.sqrt(Number(scrn.value)) * 3);
   }
+  // square root
 }
 
 function trigo():void {  
-
+// Trigonometry operations
 var temp = <HTMLInputElement>document.getElementById("Trigonometry");
   var e:string = temp.value;
   switch (e) {
@@ -218,13 +232,15 @@ var temp = <HTMLInputElement>document.getElementById("Trigonometry");
       }
       break;
     default:
-    // nothing to write here
+    // nothing to write in default
   }
   var DropdownList = (document.getElementById("Trigonometry")) as HTMLSelectElement;
   DropdownList.selectedIndex=0;
+  // after clicking on any of the functions, dropdown menu will be reset
 }
 
 function Functions(): void {
+  // scientific functions
   var temp = <HTMLInputElement>document.getElementById("Functions");
   var e:string = temp.value;
   switch (e) {
@@ -241,9 +257,10 @@ function Functions(): void {
       scrn.value = String(Math.asin(Number(scrn.value)));
       break;
     default:
-    // nothing to write here 
+      // nothing to write in default
   }
   var DropdownList = (document.getElementById("Functions")) as HTMLSelectElement;
   DropdownList.selectedIndex=0;
+  // after clicking on any of the functions, dropdown menu will be reset
 }
 
