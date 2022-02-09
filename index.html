@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" type="image/png" href="calc.png" />
+
+    <title>Scientific Calculator</title>
+    <style></style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="display">
+        <input
+          type="text"
+          placeholder="0"
+          class="screen"
+          id="scrn"
+          name="scrn"
+          maxlength="15"
+          onkeypress="return checkAlpha(event)"
+        />
+      </div>
+      <div class="buttons">
+        <div class="row">
+          <a class="diff" id="calcMode" onclick="calcModeButton()">RAD</a>
+          <a class="diff" onclick="FE()">F-E</a>
+        </div>
+        <div class="row">
+          <a class="diff" onclick="memoryOperations('mc')">MC</a>
+          <a class="diff" onclick="memoryOperations('mr')">MR</a>
+          <a class="diff" onclick="memoryOperations('m+')">M+</a>
+          <a class="diff" onclick="memoryOperations('m-')">M-</a>
+          <a class="diff" onclick="memoryOperations('ms')">MS</a>
+        </div>
+        <div class="row">
+          <a class="diff">
+            <select name="Trigonometry" id="Trigonometry" onchange="trigo()">
+              <option disabled selected>△ Trigonometry</option>
+              <option value="1">sin</option>
+              <option value="2">cos</option>
+              <option value="3">tan</option>
+            </select>
+          </a>
+
+          <a class="diff">
+            <select name="Functions" id="Functions" onchange="Functions()">
+              <option disabled selected>ƒ Function</option>
+              <option value="1">abs(x)</option>
+              <option value="2">acos(x)</option>
+              <option value="3">acosh(x)</option>
+              <option value="4">asin(x)</option>
+            </select>
+          </a>
+        </div>
+
+        <div class="row">
+          <button class="btn" id="2ndbtn" onclick="secondButton()">2<sup>nd</sup></button>
+          <button onclick="scrn.value +='3.14159265359'">π</button>
+          <button onclick="scrn.value +='2.71828182846'">e</button>
+          <button onclick="scrn.value=''">C</button>
+          <button onclick="backspace()" style="font-weight: bold"><</button>
+        </div>
+
+        <div class="row">
+          <button id="x2" onclick="pow()">x^2</button>
+          <button onclick="oneDivide()">1/x</button>
+          <button onclick="scrn.value = 0 - scrn.value">|x|</button>
+          <button onclick="exp()">exp</button>
+          <button onclick="scrn.value += '%'">mod</button>
+        </div>
+
+        <div class="row">
+          <button id="2√x" onclick="sqrt()">2√x</button>
+          <button onclick="scrn.value += '('" class="btn">(</button>
+          <button onclick="scrn.value += ')'" class="btn">)</button>
+          <button onclick="fact()">n!</button>
+          <button onclick="scrn.value += '/'" class="btn">÷</button>
+        </div>
+
+        <div class="row">
+          <button id="xy" onclick="scrn.value +='**'">x^y</button>
+          <button onclick="scrn.value += '7'" class="btn">7</button>
+          <button onclick="scrn.value += '8'" class="btn">8</button>
+          <button onclick="scrn.value += '9'" class="btn">9</button>
+          <button onclick="scrn.value += '*'" class="btn">x</button>
+        </div>
+
+        <div class="row">
+          <button id="10x" onclick="tenpower()">10^x</button>
+          <button onclick="scrn.value += '4'" class="btn">4</button>
+          <button onclick="scrn.value += '5'" class="btn">5</button>
+          <button onclick="scrn.value += '6'" class="btn">6</button>
+          <button onclick="scrn.value += '-'" class="btn">-</button>
+        </div>
+
+        <div class="row">
+          <button id="log" onclick="log()">log</button>
+          <button onclick="scrn.value += '1'" class="btn">1</button>
+          <button onclick="scrn.value += '2'" class="btn">2</button>
+          <button onclick="scrn.value += '3'" class="btn">3</button>
+          <button onclick="scrn.value += '+'" class="btn">+</button>
+        </div>
+        <div class="row">
+          <button id="In" onclick="In()">In</button>
+          <button onclick="sign()">+/-</button>
+          <button onclick="scrn.value += '0'" class="btn">0</button>
+          <button onclick="scrn.value += '.'" class="btn">.</button>
+          <button
+            onclick="evalu()"
+            style="background-color: #e7a01f; color: white; font-weight: bolder"
+          >
+            =
+          </button>
+        </div>
+      </div>
+ 
+      <p id="memory-operation">No Stored <abbr title="Use MS,MR,M+,+- and MC for memory operations">Value </abbr> 
+        Available</p> 
+    </div>
+
+    <script src="lib/app.js"></script>
+  </body>
+</html>

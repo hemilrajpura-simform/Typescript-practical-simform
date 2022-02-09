@@ -1,0 +1,67 @@
+body {
+  min-height: 100vh;
+  background-color: #ecf0f3;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.container {
+  height: 70vh;
+  width: 33%;
+  padding: 10px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 20px #cbced1;
+  outline: 2px double rgba(0, 0, 0, 0.151);
+  border-bottom: 6px solid rgb(255 177 37);
+}
+.display input {
+  width: 99%;
+  height: 70px;
+  outline: none;
+  border: none;
+  text-align: right;
+  font-size: 30px;
+  border-radius: 9px;
+  color: rgb(100, 98, 98);
+  box-shadow: inset -1px 1px 12px 0px #22222245;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 75%;
+  margin: 14px 0 0 0;
+}
+.buttons button {
+  width: 19%;
+  height: 31px;
+  border: none;
+  background-color: white;
+  box-shadow: -1px 1px 8px #cbced1;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.buttons button:hover {
+  box-shadow: none;
+}
+.row a {
+  padding: 0 10px;
+  color: rgba(0, 0, 0, 0.76);
+  cursor: pointer;
+}
+.diff {
+  font-size: 14px;
+}
+.diff select {
+  border: none;
+  background-color: #ecf0f3;
+}
+p#memory-operation {
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+a.diff:hover {
+  color: black;
+}
